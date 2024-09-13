@@ -1,7 +1,6 @@
 const BASE_URL = "https://comp2140-261d7d0a.uqcloud.net/api";
 
 const JWT_TOKEN = import.meta.env.VITE_JWT_TOKEN;
-
 console.log(JWT_TOKEN);
 
 export async function makeRequest(endpoint, method = "GET", body) {
@@ -58,3 +57,17 @@ export async function updateClub(id, club) {
 export async function deleteClub(id) {
   return makeRequest(`/clubs?club_id=eq.${id}`, "DELETE");
 }
+
+// async function createClubAsync() {
+//   await createClub({
+//     club_name: "UQ Gamer Society",
+//     description: "we are gamers",
+//     creator_name: "uh",
+//     group_chat_link:
+//       "https://discordapp.com/channels/809997432011882516/910694743728619540",
+//     icon_url:
+//       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXV698gnQnUw3jsiVUClkOgAn7KiOAAs2SLA&s",
+//   });
+// }
+
+// createClubAsync();
