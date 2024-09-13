@@ -2,6 +2,8 @@ const BASE_URL = "https://comp2140-261d7d0a.uqcloud.net/api";
 
 const JWT_TOKEN = import.meta.env.VITE_JWT_TOKEN;
 
+console.log(JWT_TOKEN);
+
 export async function makeRequest(endpoint, method = "GET", body) {
   try {
     const options = {
