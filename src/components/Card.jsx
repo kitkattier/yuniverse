@@ -165,6 +165,8 @@ function Card({ options, isClub, onUpdate }) {
             <h2 className="card-title text-3xl hover:text-shadow-lg">
               {isClub ? options.club_name : options.event_name}
             </h2>
+
+            {isClub && <p className="text-lg">club id : {options.club_id}</p>}
             <p className="text-xl truncate">
               {isClub ? options.description : options.event_description}
             </p>

@@ -59,7 +59,6 @@ function Create() {
   const handleInputChange = (event) => {
     const newAnswers = [...answers];
     newAnswers[currentQuestionIndex] = event.target.value;
-    console.log(newAnswers);
     setAnswers(newAnswers);
   };
 
@@ -137,7 +136,6 @@ function Create() {
           <DatePicker
             selected={startDate}
             onChange={(date) => {
-              console.log(date.toISOString());
               setStartDate(date);
               const newAnswers = [...answers];
               newAnswers[currentQuestionIndex] = date.toISOString().replace(); // Store date
