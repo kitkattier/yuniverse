@@ -74,7 +74,7 @@ function Create() {
         });
         navigate("/clubs");
       } catch (error) {
-        console.error("Error creating club:", error);
+        window.alert("Error creating club:", error);
       }
     } else {
       await createEvent({
