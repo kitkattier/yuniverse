@@ -17,3 +17,8 @@ this app provides many features mainly revolving around creation of clubs and ev
 ## Advanced feature
 
 - when making a new event, the pin on the map can be dragged and dropped to select a location. this basically does a reverse search on the coordinates and gets the location name. (reverse geocoding)
+
+## AI Usage
+
+- chat gpt and copilot were used to aid with the created of docstrings.
+- copilot autocompletions were used to auto complete some code for faster typing. these were snippets that either \(a\) I had already written similar stuff to and just needed change in variable names eg. clubs vs events \(b\) was really basic stuff like generating component stubs.
