@@ -23,8 +23,8 @@ function Create() {
   const eventQuestions = [
     "What is the name of your event?",
     "Please provide a brief description of the event.",
-    "Please provide a date for your event",
-    "Where will your event be held?",
+    "Please provide a date for your event (Click on the date field below and pick a date!)",
+    "Where will your event be held? (Either drag and drop the pin or search)",
     "Please provide the link to the tickets.",
     "Is your event a part of a club? If so, which one? (Enter the club ID)",
     "One last question :3, what is your name?",
