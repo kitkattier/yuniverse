@@ -123,8 +123,6 @@ function Map({ createMode, addLocation, addName }) {
     }
   }, [events, createMode]);
 
-  console.log("Selected event:", selectedEvent.event_place_name);
-
   return (
     <div className="mx-12 mt-5 flex align-middle justify-center h-[75vh] space-x-6 z-10">
       <MapModal event={selectedEvent} modal={modal} ref={modal} />
