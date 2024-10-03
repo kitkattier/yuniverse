@@ -1,10 +1,12 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 import CardGroup from "../CardGroup.jsx";
 import Map from "../components/Map.jsx";
 import { Link } from "react-router-dom";
+import SearchBar from "../components/SearchBar.jsx";
 
 function Events() {
   const [isCardView, setCardView] = useState(0);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const cardView = (switchToMap) => {
     setCardView(switchToMap ? 0 : 1); // Set to 0 for map view, 1 for card view
@@ -13,6 +15,16 @@ function Events() {
   return (
     <>
       <div className="flex w-full justify-center items-center flex-col align-middle ">
+        <div className="flex w-[50%] z-40 sticky top-6">
+          <SearchBar
+            width={`w-[100%] hover:w-[100%] input-info rounded-lg mb-2`}
+            placeholder="Search for events"
+            onSearch={(query) => setSearchQuery(query)}
+          />
+          <button className="btn btn-outline w-36 rounded-lg flex-row ml-3">
+            Search
+          </button>
+        </div>
         <div>
           <button
             className="btn btn-info mx-1 w-28"
@@ -39,7 +51,11 @@ function Events() {
           </p>{" "}
         </div>
       </div>
-      {isCardView ? <CardGroup isClub={false} /> : <Map createMode={false} />}
+      {isCardView ? (
+        <CardGroup isClub={false} searchQuery={searchQuery} />
+      ) : (
+        <Map createMode={false} />
+      )}
     </>
   );
 }

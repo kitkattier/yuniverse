@@ -86,7 +86,6 @@ function Map({ createMode, addLocation, addName }) {
         const el = document.createElement("div");
         el.className = "marker w-[60px] h-[60px] rounded-full bg-cover";
         el.style.backgroundImage = `url(${logo})`; // Correct the background image path
-        setSelectedEvent(event);
 
         // Split the location string into coordinates
         const coordinates = event.event_location
@@ -103,15 +102,14 @@ function Map({ createMode, addLocation, addName }) {
 
           geoRef.current.query(`${coordinates[0]}, ${coordinates[1]}`);
 
-          geoRef.current.on("result", (result) => {
-            event.event_place_name = result.result.place_name;
-            setSelectedEvent(event);
-            geoRef.current({ marker: false });
-          });
-
-          // Set the selected event
+          setSelectedEvent(event);
 
           modal.current.showModal();
+
+          geoRef.current.on("result", (result) => {
+            event.event_place_name = result.result.place_name;
+            geoRef.current({ marker: false });
+          });
         });
 
         if (coordinates.length === 2) {
@@ -125,7 +123,12 @@ function Map({ createMode, addLocation, addName }) {
 
   return (
     <div className="mx-12 mt-5 flex align-middle justify-center h-[75vh] space-x-6 z-10">
-      <MapModal event={selectedEvent} modal={modal} ref={modal} />
+      <MapModal
+        event={selectedEvent}
+        modal={modal}
+        ref={modal}
+        key={selectedEvent.event_id}
+      />
       <div
         id="map-container"
         className="grow rounded-lg"

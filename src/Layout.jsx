@@ -8,9 +8,16 @@ const Layout = () => {
   const isClubsPage =
     location.pathname === "/clubs" || location.pathname === "/clubs/";
 
+  const isEventsPage =
+    location.pathname === "/events" || location.pathname === "/events/";
+
   return (
     <>
-      <Navbar searchbar={isHomePage ? true : isClubsPage ? false : true} />
+      <Navbar
+        searchbar={
+          isHomePage ? true : isClubsPage ? false : isEventsPage ? false : true
+        }
+      />
       <main>
         <Outlet />
       </main>

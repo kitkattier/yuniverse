@@ -7,7 +7,7 @@ import {
   updateEvent,
 } from "../data-utils/api-utils.js";
 
-function CardGroup({ isClub }) {
+function CardGroup({ isClub, searchQuery }) {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -22,6 +22,18 @@ function CardGroup({ isClub }) {
 
     fetchData();
   }, [isClub]);
+
+  // Filter items based on search query
+  let filteredItems = [];
+  if (isClub) {
+    filteredItems = items.filter((item) =>
+      item.club_name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  } else {
+    filteredItems = items.filter((item) =>
+      item.event_name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }
 
   const handleUpdate = async (updatedItem) => {
     try {
@@ -41,7 +53,7 @@ function CardGroup({ isClub }) {
 
   return (
     <div className="flex flex-wrap flex-row w-full justify-center">
-      {items.map((item) => (
+      {filteredItems.map((item) => (
         <Card
           options={item}
           key={item.id}
