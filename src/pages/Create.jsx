@@ -77,17 +77,21 @@ function Create() {
         window.alert("Error creating club:", error);
       }
     } else {
-      await createEvent({
-        event_name: answers[0],
-        event_description: answers[1],
-        event_datetime: answers[2],
-        event_location: answers[3],
-        ticket_link: answers[4],
-        club_id: answers[5],
-        creator_name: answers[6],
-        event_place_name: answers[7],
-      });
-      navigate("/events");
+      try {
+        await createEvent({
+          event_name: answers[0],
+          event_description: answers[1],
+          event_datetime: answers[2],
+          event_location: answers[3],
+          ticket_link: answers[4],
+          club_id: answers[5],
+          creator_name: answers[6],
+          event_place_name: answers[7],
+        });
+        navigate("/events");
+      } catch (error) {
+        window.alert("Error creating event:", error);
+      }
     }
   };
 
