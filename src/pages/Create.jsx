@@ -74,7 +74,7 @@ function Create() {
         });
         navigate("/clubs");
       } catch (error) {
-        window.alert("Error creating club:", error);
+        window.alert(`Error creating club. Please verify your inputs.${error}`);
       }
     } else {
       try {
@@ -90,7 +90,9 @@ function Create() {
         });
         navigate("/events");
       } catch (error) {
-        window.alert("Error creating event:", error);
+        window.alert(
+          `Error creating club. Please verify your inputs.${error}. Make sure the club ID is valid. please visit the clubs page to see a list of club IDs`
+        );
       }
     }
   };
