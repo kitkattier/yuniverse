@@ -1,9 +1,21 @@
 import React, { useState } from "react";
 import { deleteClub, deleteEvent } from "../../data-utils/api-utils";
+import logo from "../assets/logo.png";
+import { useNavigate } from "react-router-dom";
 
+/**
+ * Renders a Card component.
+ *
+ * @component
+ * @param {Object} options - The options for the card.
+ * @param {boolean} isClub - Indicates whether the card is for a club or an event.
+ * @param {Function} onUpdate - The function to be called when the card is updated.
+ * @returns {JSX.Element} The rendered Card component.
+ */
 function Card({ options, isClub, onUpdate }) {
   const [isEditing, setIsEditing] = useState(false);
 
+  const navigate = useNavigate();
   // Initialize edit data based on isClub
   const initialEditData = isClub
     ? { ...options } // For club
@@ -31,14 +43,15 @@ function Card({ options, isClub, onUpdate }) {
       if (action === "delete") {
         if (isClub) {
           await deleteClub(options.club_id);
+          navigate(0);
         } else {
           await deleteEvent(options.event_id);
+          navigate(0);
         }
-        window.location.reload();
       } else if (action === "save") {
         await onUpdate(editData);
         setIsEditing(false);
-        window.location.reload();
+        navigate(0);
       }
     } catch (error) {
       window.alert(`Error ${action} ${isClub ? "club" : "event"}:`, error);
@@ -156,7 +169,7 @@ function Card({ options, isClub, onUpdate }) {
         <>
           <figure className="px-10 pt-10">
             <img
-              src={options.icon_url}
+              src={options.icon_url ? options.icon_url : logo}
               alt={`${isClub ? options.club_name : options.event_name}-logo`}
               className="rounded-full w-[50%] border-2 border-default"
             />

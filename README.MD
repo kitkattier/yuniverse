@@ -10,7 +10,7 @@ this app provides many features mainly revolving around creation of clubs and ev
 
 ## other IMPORTANT Notes
 
-- **PLEASE** do not reload the website, especially the map exccesively. Use it as much as you'd like, but if you say _spam_ reload it that would not be good
+- **PLEASE** do not reload the website, especially the map excessively. Use it as much as you'd like, but if you say, _spam_ reload it that would not be good
 - (this is because i am using the mapbox api and if i use too many requests it is going to charge me money)
 - also, please handle the api key with care ^\_^
 

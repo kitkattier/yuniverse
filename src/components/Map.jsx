@@ -7,6 +7,15 @@ import { getEvents } from "/data-utils/api-utils.js";
 import logo from "../assets/logo.png";
 import MapModal from "./MapModal";
 
+/**
+ * Renders a map component.
+ *
+ * @param {Object} props - The component props.
+ * @param {boolean} props.createMode - Indicates whether the map is in create mode.
+ * @param {Function} props.addLocation - Callback function to add a location.
+ * @param {Function} props.addName - Callback function to add a name.
+ * @returns {JSX.Element} The map component.
+ */
 function Map({ createMode, addLocation, addName }) {
   const mapRef = useRef();
   const geoRef = useRef();
@@ -126,7 +135,6 @@ function Map({ createMode, addLocation, addName }) {
       <MapModal
         event={selectedEvent}
         modal={modal}
-        ref={modal}
         key={selectedEvent.event_id}
       />
       <div

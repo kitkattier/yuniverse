@@ -4,6 +4,11 @@ import Map from "../components/Map.jsx";
 import { Link } from "react-router-dom";
 import SearchBar from "../components/SearchBar.jsx";
 
+/**
+ * Renders the Events page.
+ *
+ * @returns {JSX.Element} The rendered Events page.
+ */
 function Events() {
   const [isCardView, setCardView] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");

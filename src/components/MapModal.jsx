@@ -2,6 +2,15 @@ import { React, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { deleteEvent } from "../../data-utils/api-utils";
 
+/**
+ * Renders a modal component for displaying event details and options.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {Object} props.event - The event object containing event details.
+ * @param {Object} props.modal - The reference to the modal element.
+ * @returns {JSX.Element} The rendered modal component.
+ */
 function MapModal({ event, modal }) {
   const [isDeleting, setIsDeleting] = useState(false);
   const navigate = useNavigate();

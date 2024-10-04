@@ -3,6 +3,13 @@ import logo from "../assets/logo.png";
 import SearchBar from "./SearchBar.jsx";
 import { Link } from "react-router-dom";
 
+/**
+ * Renders the Navbar component.
+ *
+ * @param {Object} props - The component props.
+ * @param {boolean} props.searchbar - Determines whether to display the search bar.
+ * @returns {JSX.Element} The rendered Navbar component.
+ */
 function Navbar({ searchbar }) {
   return (
     <>

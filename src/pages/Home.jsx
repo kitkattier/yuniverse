@@ -1,5 +1,10 @@
 import React from "react";
 
+/**
+ * Home component.
+ *
+ * @returns {JSX.Element} The rendered Home component.
+ */
 const Home = () => {
   return (
     <>

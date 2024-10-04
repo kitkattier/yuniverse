@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import { createClub, createEvent } from "/data-utils/api-utils.js";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { Link, redirect, useLocation, useNavigate } from "react-router-dom";
+import DateTimePicker from "react-datetime-picker";
+import { useNavigate } from "react-router-dom";
 import Map from "../components/Map.jsx";
+import "react-datetime-picker/dist/DateTimePicker.css";
+import "react-calendar/dist/Calendar.css";
+import "react-clock/dist/Clock.css";
 
+/**
+ * Renders a form for creating a club or event.
+ *
+ * @returns {JSX.Element} The Create component.
+ */
 function Create() {
   const [startDate, setStartDate] = useState(new Date());
   const [selectedLocation, setSelectedLocation] = useState(null); // For storing selected coordinates
@@ -23,7 +30,7 @@ function Create() {
   const eventQuestions = [
     "What is the name of your event?",
     "Please provide a brief description of the event.",
-    "Please provide a date for your event (Click on the date field below and pick a date!)",
+    "Please provide a date for your event (Click on the datetime field below !)",
     "Where will your event be held? (Either drag and drop the pin or search)",
     "Please provide the link to the tickets.",
     "Is your event a part of a club? If so, which one? (Enter the club ID)",
@@ -139,12 +146,13 @@ function Create() {
       {
         // Render different input types based on the question
         currentQuestionIndex === 2 && formType === "event" ? (
-          <DatePicker
-            selected={startDate}
+          <DateTimePicker
+            className="bg-white text-black"
             onChange={(date) => {
               setStartDate(date);
               const newAnswers = [...answers];
               newAnswers[currentQuestionIndex] = date.toISOString().replace(); // Store date
+              console.log(newAnswers[currentQuestionIndex]);
               setAnswers(newAnswers);
             }}
           />

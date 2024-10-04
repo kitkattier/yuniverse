@@ -7,6 +7,15 @@ import {
   updateEvent,
 } from "../data-utils/api-utils.js";
 
+/**
+ * Renders a group of cards based on the provided props.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {boolean} props.isClub - Indicates whether the group represents clubs or events.
+ * @param {string} props.searchQuery - The search query used to filter the items.
+ * @returns {JSX.Element} The rendered CardGroup component.
+ */
 function CardGroup({ isClub, searchQuery }) {
   const [items, setItems] = useState([]);
 

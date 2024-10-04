@@ -1,5 +1,15 @@
 import React from "react";
 
+/**
+ * SearchBar component.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {string} props.width - The width of the search bar.
+ * @param {string} [props.placeholder="Search for events or clubs"] - The placeholder text for the search bar.
+ * @param {Function} props.onSearch - The callback function to be called when the search input changes.
+ * @returns {JSX.Element} The rendered SearchBar component.
+ */
 function SearchBar({
   width,
   placeholder = "Search for events or clubs",

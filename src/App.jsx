@@ -12,6 +12,11 @@ import Events from "./pages/Events.jsx";
 import Create from "./pages/Create.jsx";
 import Layout from "./Layout.jsx";
 
+/**
+ * Renders the main application component.
+ *
+ * @returns {JSX.Element} The rendered application component.
+ */
 function App() {
   return (
     <Router>

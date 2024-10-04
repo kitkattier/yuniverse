@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 import SearchBar from "../components/SearchBar.jsx";
 import CardGroup from "../CardGroup.jsx";
 
+/**
+ * Renders the Clubs page.
+ *
+ * @returns {JSX.Element} The Clubs page component.
+ */
 function Clubs() {
   const [searchQuery, setSearchQuery] = useState("");
 

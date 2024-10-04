@@ -2,6 +2,10 @@ import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
+/**
+ * Layout component that renders the navigation bar, main content, and footer.
+ * @returns {JSX.Element} The rendered layout component.
+ */
 const Layout = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
