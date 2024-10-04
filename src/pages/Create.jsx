@@ -152,7 +152,6 @@ function Create() {
               setStartDate(date);
               const newAnswers = [...answers];
               newAnswers[currentQuestionIndex] = date.toISOString().replace(); // Store date
-              console.log(newAnswers[currentQuestionIndex]);
               setAnswers(newAnswers);
             }}
           />
